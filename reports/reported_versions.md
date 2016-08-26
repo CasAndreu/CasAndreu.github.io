@@ -250,7 +250,7 @@ bills_not_in_comps <-unique(amend_info$billid)[which(!(unique(amend_info$billid)
 bills_not_in_comps
 ```
 
-If we check whether the first of these bills is in the overall metadata dataset, we see that it's there. However, we don't have a IH version. Then the difference between the number of bills in `amend_info` and `comps` dataset is because we were filtering the comparisons dataset to only get comparisons involving IH/IS and RH/RS versions, <span style="color:red"> **and we don't have IH/IS versions for these bills! We need to fix this. We need to check what other IH/IS versions are we missing and get them!** </spam>
+If we check whether the first of these bills (111-HR-1275) is in the overall metadata dataset, we see that it's there. However, we don't have a IH version. Then the difference between the number of bills in `amend_info` and `comps` dataset is because we were filtering the comparisons dataset to only get comparisons involving IH/IS and RH/RS versions, <span style="color:red"> **and we don't have IH/IS versions for these bills! We need to fix this. We need to check what other IH/IS versions are we missing and get them!** </spam>
 
 For now let's look at the ones for which we have IH/IS versions.
 ```{r}
