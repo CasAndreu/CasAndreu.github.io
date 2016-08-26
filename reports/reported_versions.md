@@ -19,7 +19,7 @@ library(venneuler)
 ______
 ### Goals of this report:
 
-- Get more information about the 11th Congress
+- Get more information about the 111th Congress
 - To know how many bills went beyond being introduced in the House and Senate (IH or RH)
 - To know how many versions were reported by one or multiple Committees in the House or the Senate (RH and/or RS)
 - To know how many of the reported version had amendments v. no amendments
