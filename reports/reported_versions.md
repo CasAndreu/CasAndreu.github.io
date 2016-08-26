@@ -19,7 +19,7 @@ library(venneuler)
 ______
 ### Goals of this report:
 
-- Get more information about the 111th Congress
+- Get more information about the 11th Congress
 - To know how many bills went beyond being introduced in the House and Senate (IH or RH)
 - To know how many versions were reported by one or multiple Committees in the House or the Senate (RH and/or RS)
 - To know how many of the reported version had amendments v. no amendments
@@ -328,8 +328,8 @@ amend_comps_plot_data <- amend_comps %>%
             upr = t.test(a_in_b)$conf.int[[2]])
 ```
 
-```{r, echo = FALSE}
-png("../images/mean_a_in_b.png", width = 1000, height = 600)
+```{r, echo = FALSE, eval = FALSE}
+png("./images/mean_a_in_b.png", width = 1000, height = 600)
 ggplot(amend_comps_plot_data, 
           aes(x = factor(any_amend_ref), 
               y = mean_a_in_b, ymin = lwr, ymax = upr)) +
@@ -348,5 +348,33 @@ dev.off()
 <p align="center">
   <img src="../images/mean_a_in_b.png">
 </p>
+
+The confidence interval around the mean difference between IH/IS and RH/RS for version introducing amendments is a little bit misleading. I'm using the `t.test` function (which assumes a t-distribution) to calculate it, which results in an overcondifent interval. Let's plot the density of that distribution to have a better picture of how it looks like.
+
+```{r eval = FALSE}
+png("../images/density_ainb.png", width = 600, height = 300)
+ggplot(amend_comps[amend_comps$any_amend_ref == 1,],
+       aes(x = a_in_b)) +
+  geom_density(fill = "grey") +
+  geom_point(aes(x = mean(a_in_b), y = 0.25)) +
+  geom_segment(aes(y = 0.25, yend = 0.25,
+                   x = t.test(a_in_b)$conf.int[[1]],
+                   xend = t.test(a_in_b)$conf.int[[2]])) +
+  ylab("") +
+  scale_y_continuous(breaks = 0) +
+  ggtitle("Percentage of the Introduced version in the Reported version \n
+          (RH/RS versions that have amendments only)") +
+  theme(axis.text.x= element_text(size = 14),
+        strip.text.x = element_text(size = 14),
+        panel.background = element_rect("white"),
+        panel.border = element_rect("black", fill = NA),
+        strip.background = element_rect("white"))
+dev.off()
+```
+
+<p align="center">
+  <img src="../images/density_ainb.png">
+</p>
+
 
 In sum, it seems that we have been able to identify all the RH/RS versions that have amenmdnets. Since we already identified the way/language/system amendments are introduced. It will be feasible to compare IH/IS to RH/RS versions using the `diff` algortihm.
