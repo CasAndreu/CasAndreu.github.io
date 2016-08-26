@@ -371,7 +371,7 @@ ggplot(amend_comps[amend_comps$any_amend_ref == 1,],
         strip.background = element_rect("white"))
 dev.off()
 ```
-[NEW](#new_density_rhrs)
+[#](#new_density_rhrs)
 <p align="center">
   <img src="../images/density_ainb.png">
 </p>
