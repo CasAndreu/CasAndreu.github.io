@@ -18,24 +18,24 @@
 </li>
 <li><p>The most common solution is to use cloud computing services such as Amazon Web Services (AWS) and to perform complex computation tasks in the cloud. Many other cloud computer services can be used for this purpose, and you may have access to a high performing computer cluster at your home institution. In these notes we&#39;ll focus on using AWS because that&#39;s what we use and know better. </p>
 </li>
-<li><p>Before you start, we suggest making sure you have a bash terminal available on your computer. A bash terminal (also referred to as a shell) will look like a command line window -- basically a black screen with a blinking curor where you enter commands. Mac computers already <a href="https://macpaw.com/how-to/use-terminal-on-mac">come with a bash terminal option</a>. Windows computers often don&#39;t, but a you can get one easily by downloading <a href="https://gitforwindows.org/">Git for Windows</a>. Once installed, simply a) click on the Windows or Start icon, b) in the Programs list, open the Git folder, and c) click the option for Git Bash. To open more than one terminal, while keeping the current one open, right click on Git Bash and select &quot;Open in a new window.&quot;</p>
+<li><p>Before you start, we suggest making sure you have a bash terminal available on your computer. A bash terminal (also referred to as a shell) will look like a command line window -- basically a black screen with a blinking cursor where you enter commands. Mac computers already <a href="https://macpaw.com/how-to/use-terminal-on-mac">come with a bash terminal option</a>. Windows computers often don&#39;t, but a you can get one easily by downloading <a href="https://gitforwindows.org/">Git for Windows</a>. Once installed, simply a) click on the Windows or Start icon, b) in the Programs list, open the Git folder, and c) click the option for Git Bash. To open more than one terminal, while keeping the current one open, right click on Git Bash and select &quot;Open in a new window.&quot;</p>
 </li>
 </ul>
 <h2 id="outline"><a class="header-link" href="#outline"></a>Outline</h2>
 <p>The goal of this module is to help people set up their own AWS infrastructure to train and fine-tune CNNs so they can implement state-of-the-art computer vision techniques in their own work.</p>
 <p>Steps:</p>
 <ol class="list">
-<li><p><a href="#1.-create-an-aws-account">Create an AWS account</a>.</p>
+<li><p><a href="#1-create-an-aws-account">Create an AWS account</a>.</p>
 </li>
-<li><p><a href="#2.-create-an-ec2-instance">Create an EC2 instance</a>.</p>
+<li><p><a href="#2-create-an-ec2-instance">Create an EC2 instance</a>.</p>
 </li>
-<li><p><a href="#3.-access-your-ec2-instance">Access your EC2 instance</a>.</p>
+<li><p><a href="#3-access-your-ec2-instance">Access your EC2 instance</a>.</p>
 </li>
-<li><p><a href="#4.-run-a-jupyter-notebook-server-in-the-instance">Run a jupyter notebook server in the instance</a>.</p>
+<li><p><a href="#4-run-a-jupyter-notebook-server-in-the-instance">Run a jupyter notebook server in the instance</a>.</p>
 </li>
-<li><p><a href="#5.-connect-to-the-jupyter-notebook-from-your-local-machine">Connect to the jupyter notebook from your local machine</a>.</p>
+<li><p><a href="#5-connect-to-the-jupyter-notebook-from-your-local-machine">Connect to the jupyter notebook from your local machine</a>.</p>
 </li>
-<li><p><a href="#6.-important-stopping-your-ec2-instance">Stopping the EC2 instance</a>.</p>
+<li><p><a href="#6-important-stopping-your-ec2-instance">Stopping the EC2 instance</a>.</p>
 </li>
 </ol>
 <h2 id="1.-create-an-aws-account"><a class="header-link" href="#1.-create-an-aws-account"></a>1. Create an AWS account</h2>
@@ -44,9 +44,9 @@
 </li>
 <li><p>Fill out the Sign Up form. </p>
 </li>
-<li><p>You will be asked to provide a credit card. New accounts can use some types of EC2 instances and other services for free during the first year. You can learn more about it in <a href="https://aws.amazon.com/free/">here</a>. However, EC2 instances with GPUs are not included in this free tier. A <code>g2.2xlarge</code> instance for example costs about $.65/hour (and a <code>p2.xlarge</code> instance costs about $.90/h -they both have 1 GPU-), but you will be charged only for the time you use it (as long as you remember to stop it when you are done! We&#39;ll get to this later, or jump ahead to the last step to learn more).</p>
+<li><p>You will be asked to provide a credit card. New accounts can use some types of EC2 instances and other services for free during the first year. You can learn more about it in <a href="https://aws.amazon.com/free/">here</a>. However, EC2 instances with GPUs are not included in this free tier. A <code>g2.2xlarge</code> instance for example costs about $.65/hour (and a <code>p2.xlarge</code> instance costs about $.90/h; they both have 1 GPU), but you will be charged only for the time you use it (as long as you remember to stop it when you are done! We&#39;ll get to this later, or jump ahead to the last step to learn more).</p>
 </li>
-<li><p>For security purposes, AWS highly recommends that you do not log in with as the &quot;root&quot; user (the user you just created, linked to your credit card). AWS suggests that you <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html">create a new user for yourself using their IAM famework</a>. You can give that new user full administrator priviledges. The only AWS element that an IAM administrative user will not be able to see is billing information -- for that you will have to log in as the root user. We won&#39;t go into the IAM user step in detail here, as you can do the rest of this module as the root user. However, we highly recommend creating an IAM user by <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html">following the steps in this tutorial</a>, then signing into AWS as that IAM user going forward. </p>
+<li><p>For security purposes, AWS highly recommends that you do not log in with as the &quot;root&quot; user (the user you just created, linked to your credit card). AWS suggests that you <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html">create a new user for yourself using their IAM famework</a>. You can give that new user full administrator priviledges. The only AWS element that an IAM administrative user will not be able to see is billing information -- for that you will have to log in as the root user. We won&#39;t go into the IAM user step in detail here, as you can do the rest of this module as the root user. However, we highly recommend creating an IAM user by <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html">following the steps in this tutorial</a>, then signing into AWS as that IAM user going forward. </p>
 </li>
 <li><p>Finally, folks affiliated with a university should consider signing up for <a href="https://aws.amazon.com/education/awseducate/">AWS Educate</a>. Once you apply and are approved, you&#39;ll receive free AWS credits (from $30-200 depending on your status). Those credits will be more than enough to cover the AWS services you&#39;ll use during this workshop.</p>
 </li>
@@ -62,7 +62,7 @@
 </li>
 <li><p>If you search for <strong>ami-0a9fac70</strong> and nothing comes up, your AWS account is probably looking in the wrong region. This AMI is only available in the <code>US East (N. Virginia)</code> region. In the upper right portion of the AWS dashboard, just to the left of the word <code>Support</code>, you&#39;ll see a dropdown option. If you click on it, you will see a list of all the AWS regions. Make sure that <code>US East (N. Virginia)</code> is selected, then search again for <strong>ami-0a9fac70</strong>.</p>
 </li>
-<li><p><strong>Step 2: Choose an Instance Type.</strong> In here you need to specify the type of machine/computer you want. You&#39;ll see a lot of types, which vary on several dimensions, such as the memory size and the number of computing nodes (CPUs, GPUs). The <code>g</code> and <code>p</code> instance types have GPU graphics on them. An affordable option ($.65/h) is to use the <code>g2.2xlarge</code> type: it comes with 1 GPU and a decent amount of memory (15Gb). The next affordable option ($.90/h) is the <code>p2.xlarge</code>, which also comes with 1 GPU (although more efficent/fast, see this <a href="https://bitfusion.io/2016/11/03/quick-comparison-of-tensorflow-gpu-performance-on-aws-p2-and-g2-instances/">comparison</a>) and much more memory (61Gb). Once you have selected an instance type, click on <code>Review and Launch</code></p>
+<li><p><strong>Step 2: Choose an Instance Type.</strong> Here you need to specify the type of machine/computer you want. You&#39;ll see a lot of types, which vary on several dimensions, such as the memory size and the number of computing nodes (CPUs, GPUs). The <code>g</code> and <code>p</code> instance types have GPU graphics on them. An affordable option ($.65/h) is to use the <code>g2.2xlarge</code> type: it comes with 1 GPU and a decent amount of memory (15Gb). The next affordable option ($.90/h) is the <code>p2.xlarge</code>, which also comes with 1 GPU (although more efficent/fast, see this <a href="https://bitfusion.io/2016/11/03/quick-comparison-of-tensorflow-gpu-performance-on-aws-p2-and-g2-instances/">comparison</a>) and much more memory (61Gb). Once you have selected an instance type, click on <code>Review and Launch</code></p>
 </li>
 <li><p><strong>Step 3,4,5,6.</strong> You can skip these steps for now. If asked, simply leave the default options selected.</p>
 </li>
@@ -127,10 +127,8 @@
 <ul class="list">
 <li><p>Connect your local machine to the port in the instance the jupyter notebook is reporting to (port 8888). </p>
 <ul class="list">
-<li>Mac users: Type the following in a <strong>new</strong> bash terminal: <code>ssh -i xxxx.pem -L 8157:127.0.0.1:8888 ubuntu@ec2-xx-xxx-xxx-xx.compute-   1.amazonaws.com</code>. You&#39;re already know what <code>xxxx.pem</code> is. The second set of placeholders (xx-xxx-xxx-xx) refer again to instance&#39;s IP. Notice however that in this case the numbers are separated by <code>-</code> and not by <code>.</code>! Again, you will need to say &quot;yes&quot; to the security question.<ul class="list">
+<li>Mac users: Type the following in a <strong>new</strong> bash terminal: <code>ssh -i xxxx.pem -L 8157:127.0.0.1:8888 ubuntu@ec2-xx-xxx-xxx-xx.compute-   1.amazonaws.com</code>. You&#39;re already know what <code>xxxx.pem</code> is. The second set of placeholders (xx-xxx-xxx-xx) refer again to instance&#39;s IP. Notice however that in this case the numbers are separated by <code>-</code> and not by <code>.</code>! Again, you will need to say &quot;yes&quot; to the security question.</li>
 <li>Windows users: Type the following in a <strong>new</strong> bash terminal: <code>ssh -i xxxx.pem -L 8888:127.0.0.1:8888 ubuntu@ec2-xx-xxx-xxx-xx.compute-1.amazonaws.com</code>. You&#39;re already know what <code>xxxx.pem</code> is. The second set of placeholders (xx-xxx-xxx-xx) refer again to instance&#39;s IP. Notice however that in this case the numbers are separated by <code>-</code> and not by <code>.</code>! Again, you will need to say &quot;yes&quot; to the security question.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><p>Now connect via your web browser of choice (Firefox, Chrome, etc.) and log in using the password you created earlier. Type the following in a web browser:</p>
@@ -151,7 +149,7 @@
 </li>
 <li><p>[Optional] Move any files you need off the EC2 instance and on to your own machine. </p>
 </li>
-<li><p>Go to your EC2 dashboard in AWS. You&#39;ll see that under <code>Instance State</code> the EC2 intance you&#39;ve been working with be listed as <code>running</code>. Right click on the word <code>running</code> and a menu will pop up. Hover over <code>Instance State</code> and you will see a series of options. Most often you will want to either <code>Stop</code> or <code>Start</code> the instance. <strong>If you select <code>Terminate</code>, you will delete the entire instance, and you will have to start all over to set up the instance.</strong> If you select <code>Stop</code>, the instance will stop running, but you will see this instance, complete with your programs and files, when you log back in. </p>
+<li><p>Go to your EC2 dashboard in AWS. You&#39;ll see that under <code>Instance State</code> the EC2 instance you&#39;ve been working with be listed as <code>running</code>. Right click on the word <code>running</code> and a menu will pop up. Hover over <code>Instance State</code> and you will see a series of options. Most often you will want to either <code>Stop</code> or <code>Start</code> the instance. <strong>If you select <code>Terminate</code>, you will delete the entire instance, and you will have to start all over to set up the instance.</strong> If you select <code>Stop</code>, the instance will stop running, but you will see this instance, complete with your programs and files, when you log back in. </p>
 </li>
 <li><p>The next time you log in, go back to your EC2 Dashboard and change the <code>Instance State</code> to <code>Start</code>. Then you can start from step 3 of this guide to log in to the instance. The key file (the <code>xxxx.pem</code>) will be the same, but note that the IP address (in the <code>IPv4 Public IP</code> column on your Dashboard) will change every time you stop and restart the instance. </p>
 </li>

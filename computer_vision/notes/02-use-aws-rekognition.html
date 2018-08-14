@@ -24,32 +24,32 @@
 </li>
 <li><p>We are going to demonstrate how to use Rekognition from your own computer, not from a cloud instance. The module assumes that you have Python 3.5 or higher available on your computer. If not, you can still practice the set up, but the provided scripts won&#39;t run for you (though with some small fixes they will work with Python 2.x). Need to install Python on your machine? We recommend using <a href="https://www.anaconda.com/download/">Anaconda</a>. If you are starting from scratch, install the version that starts with 3.x (Python 2.7 works but will soon be unsupported).</p>
 </li>
-<li><p>Before you start, we suggest making sure you have a bash terminal available on your computer. A bash terminal (also referred to as a shell) will look like a command line window -- basically a black screen with a blinking curor where you enter commands. Mac computers already <a href="https://macpaw.com/how-to/use-terminal-on-mac">come with a bash terminal option</a>. Windows computers often don&#39;t, but a you can get one easily by downloading <a href="https://gitforwindows.org/">Git for Windows</a>. Once installed, simply a) click on the Windows or Start icon, b) in the Programs list, open the Git folder, and c) click the option for Git Bash. To open more than one terminal, while keeping the current one open, right click on Git Bash and select &quot;Open in a new window.&quot;</p>
+<li><p>Before you start, we suggest making sure you have a bash terminal available on your computer. A bash terminal (also referred to as a shell) will look like a command line window -- basically a black screen with a blinking cusror where you enter commands. Mac computers already <a href="https://macpaw.com/how-to/use-terminal-on-mac">come with a bash terminal option</a>. Windows computers often don&#39;t, but a you can get one easily by downloading <a href="https://gitforwindows.org/">Git for Windows</a>. Once installed, simply a) click on the Windows or Start icon, b) in the Programs list, open the Git folder, and c) click the option for Git Bash. To open more than one terminal, while keeping the current one open, right click on Git Bash and select &quot;Open in a new window.&quot;</p>
 </li>
 </ul>
 <h2 id="outline"><a class="header-link" href="#outline"></a>Outline</h2>
 <p>Steps:</p>
 <ol class="list">
-<li><p><a href="#1.-set-up-a-project-folder">Set up a project folder on your computer</a></p>
+<li><p><a href="#1-set-up-a-project-folder">Set up a project folder on your computer</a></p>
 </li>
-<li><p><a href="#2.-create-an-aws-account">Create an AWS account</a>.</p>
+<li><p><a href="#2-create-an-aws-account">Create an AWS account</a>.</p>
 </li>
-<li><p><a href="#3.-create-an-iam-user">Create an IAM user</a></p>
+<li><p><a href="#3-create-an-iam-user">Create an IAM user</a></p>
 </li>
-<li><p><a href="#4.-get-and-save-keys">Get and save security keys for your IAM account</a>.</p>
+<li><p><a href="#4-get-and-save-keys">Get and save security keys for your IAM account</a>.</p>
 </li>
-<li><p><a href="#5.-access-your-ec2-instance">Install boto3</a>.</p>
+<li><p><a href="#5-access-your-ec2-instance">Install boto3</a>.</p>
 </li>
-<li><p><a href="#6.-clone-repo">Download the repo with sample AWS scripts</a></p>
+<li><p><a href="#6-clone-repo">Download the repo with sample AWS scripts</a></p>
 </li>
-<li><p>Optional <a href="#7.-get-a-nice-text-editor">Get a nice text editor</a></p>
+<li><p>Optional: <a href="#7-get-a-nice-text-editor">Get a nice text editor</a></p>
 </li>
-<li><p>Optional <a href="#8.-install-jupyter-notebook">Install Jupyer Notebook</a></p>
+<li><p>Optional: <a href="#8-install-jupyter-notebook">Install Jupyer Notebook</a></p>
 </li>
 </ol>
 <h2 id="1.-set-up-a-project-folder"><a class="header-link" href="#1.-set-up-a-project-folder"></a>1. Set up a project folder</h2>
 <ul class="list">
-<li><p>It helps for organization to create a dedicated directory/folder on your computer for this task. Name the new directory &#39;auto_tagger_example&#39;. You can save it wherever you like (Desktop, Documents, etc.). For the demo, we have this directory saved on the Desktop.  </p>
+<li><p>It helps for organization to create a dedicated directory/folder on your computer for this task. Create a new directory and name it &#39;auto_tagger_example&#39;. You can create it wherever you like (Desktop, Documents, etc.). For the demo, we have this directory saved on the Desktop.  </p>
 </li>
 <li><p>Within the new directory, create a subfolder named &#39;keys&#39;. </p>
 </li>
