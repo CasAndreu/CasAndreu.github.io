@@ -85,7 +85,7 @@
 </li>
 <li><p>Here is the command you need to type in the bash shell in order to access the EC2 instance: <code>ssh -i xxxx.pem ubuntu@xx.xxx.xxx.xxx</code>, where:</p>
 <ul class="list">
-<li><code>xxxx.pem</code> is the path to your key. This could be something like: <code>/Users/johnsmith/my_key.pem</code></li>
+<li><code>xxxx.pem</code> is the path to your key. This could be something like: <code>/Users/johnsmith/my_key.pem</code></li>. If it's the first time you use this key, you'll need to set up the right permission by typing in a bash terminal: <code> sudo chmod 600 /path/to/my/key.pem </code>. Otherwise, you'll get the following warning: <code> WARNING: UNPROTECTED PRIVATE KEY FILE!  </code>.
 <li><code>xx.xxx.xxx.xxx</code> is the IP of the instance you launched. You can find it in the AWS EC2 Instances dashboard, under the <code>IPv4 Public IP</code> column.</li>
 </ul>
 </li>
@@ -127,7 +127,7 @@
 <ul class="list">
 <li><p>Connect your local machine to the port in the instance the jupyter notebook is reporting to (port 8888). </p>
 <ul class="list">
-<li>Mac users: Type the following in a <strong>new</strong> bash terminal: <code>ssh -i xxxx.pem -L 8157:127.0.0.1:8888 ubuntu@ec2-xx-xxx-xxx-xx.compute-   1.amazonaws.com</code>. You&#39;re already know what <code>xxxx.pem</code> is. The second set of placeholders (xx-xxx-xxx-xx) refer again to instance&#39;s IP. Notice however that in this case the numbers are separated by <code>-</code> and not by <code>.</code>! Again, you will need to say &quot;yes&quot; to the security question.</li>
+<li>Mac users: Type the following in a <strong>new</strong> bash terminal: <code>ssh -i xxxx.pem -L 8157:127.0.0.1:8888 ubuntu@ec2-xx-xxx-xxx-xx.compute-1.amazonaws.com</code>. You&#39;re already know what <code>xxxx.pem</code> is. The second set of placeholders (xx-xxx-xxx-xx) refer again to instance&#39;s IP. Notice however that in this case the numbers are separated by <code>-</code> and not by <code>.</code>! Again, you will need to say &quot;yes&quot; to the security question.</li>
 <li>Windows users: Type the following in a <strong>new</strong> bash terminal: <code>ssh -i xxxx.pem -L 8888:127.0.0.1:8888 ubuntu@ec2-xx-xxx-xxx-xx.compute-1.amazonaws.com</code>. You&#39;re already know what <code>xxxx.pem</code> is. The second set of placeholders (xx-xxx-xxx-xx) refer again to instance&#39;s IP. Notice however that in this case the numbers are separated by <code>-</code> and not by <code>.</code>! Again, you will need to say &quot;yes&quot; to the security question.</li>
 </ul>
 </li>
