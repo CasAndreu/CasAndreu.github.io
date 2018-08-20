@@ -85,7 +85,7 @@
 </li>
 <li><p>Here is the command you need to type in the bash shell in order to access the EC2 instance: <code>ssh -i xxxx.pem ubuntu@xx.xxx.xxx.xxx</code>, where:</p>
 <ul class="list">
-<li><code>xxxx.pem</code> is the path to your key. This could be something like: <code>/Users/johnsmith/my_key.pem</code></li>. If it's the first time you use this key, you'll need to set up the right permission by typing in a bash terminal: <code> sudo chmod 600 /path/to/my/key.pem </code>. Otherwise, you'll get the following warning: <code> WARNING: UNPROTECTED PRIVATE KEY FILE!  </code>.
+<li><code>xxxx.pem</code> is the path to your key. This could be something like: <code>/Users/johnsmith/my_key.pem</code></li>. If it's the first time you use this key, you'll need to set up the right permission by typing in a bash terminal: <code>sudo chmod 600 /path/to/my/key.pem</code>. Otherwise, you'll get the following warning: <code>WARNING: UNPROTECTED PRIVATE KEY FILE! </code>.
 <li><code>xx.xxx.xxx.xxx</code> is the IP of the instance you launched. You can find it in the AWS EC2 Instances dashboard, under the <code>IPv4 Public IP</code> column.</li>
 </ul>
 </li>
